@@ -1,6 +1,5 @@
-﻿// Задача №33
-// Задайте массив. Напишите программу, которая определяет, 
-// присутствует ли заданное число в массиве.
+﻿// №34 Задайте массив заполненный случайными положительными трёхзначными числами.
+// Напишите программу, которая покажет количество чётных чисел в массиве.
 
 int ReadData(string msg)
 {
@@ -33,30 +32,26 @@ void Print1DArr(int[] arr)
     Console.WriteLine(arr[arr.Length - 1] + "]");
 }
 
-int Search(int[] arr, int e)
+int CountElem(int[] arr)
 {
-    int res = -1;
+    int res = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] == e)
+        if (Test(arr[i]))
         {
-            res = i;
-            break;
+            res++;
         }
     }
     return res;
 }
 
-int[] testArr = Gen1DArray(12, -9, 9);
-Print1DArr(testArr);
-int element = ReadData("Какой элемент найти?: ");
-int result = Search(testArr, element);
+bool Test(int n)
+{
+    return (n%2==0);
+}
 
-if (result >= 0)
-{
-    PrintData("Элемент найден в позиции: " + (result+1));
-}
-else
-{
-    PrintData("В массиве элемент не найден!");
-}
+int[] testArr = Gen1DArray(10,100,999);
+Print1DArr(testArr);
+int count = CountElem(testArr);
+PrintData("Количество чётных чисел в массиве:" +count);
+
