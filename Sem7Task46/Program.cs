@@ -56,10 +56,9 @@ void PrintTwoDimArray(int[,] inputArray)
         j = 0;
         while (j < inputArray.GetLength(1))
         {
-            Console.ForegroundColor = (ConsoleColor)(new System.Random().Next(0,16));
-            //col[new System.Random().Next(0,16)]; 
+            
             Console.Write(inputArray[i, j] + " ");
-            Console.ResetColor(); 
+         
             j++;
         }
         //Console.Write("\n");
